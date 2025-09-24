@@ -5,3 +5,44 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+
+        - id: project-service
+          uri: lb://project-service
+          predicates:
+            - Path=/projects/**
+
+        - id: issue-service
+          uri: lb://issue-service
+          predicates:
+            - Path=/issues/**
+
+        - id: comment-service
+          uri: lb://comment-service
+          predicates:
+            - Path=/comments/**
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notifications/**
+
+        - id: reporting-service
+          uri: lb://reporting-service
+          predicates:
+            - Path=/reports/**
+
+        - id: audit-service
+          uri: lb://audit-service
+          predicates:
+            - Path=/audits/**
+
+        - id: attachment-service
+          uri: lb://attachment-service
+          predicates:
+            - Path=/attachments/**
