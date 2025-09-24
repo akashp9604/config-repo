@@ -14,7 +14,6 @@ cloud:
   config:
     override-system-properties: false
 
----
 spring:
   config:
     activate:
@@ -23,7 +22,6 @@ spring:
     level:
       root: DEBUG
 
----
 spring:
   config:
     activate:
