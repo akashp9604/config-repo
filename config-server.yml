@@ -1,3 +1,16 @@
+server:
+  port: 8888
+
 spring:
   application:
     name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/akashp9604/config-repo.git
+          default-label: master   # branch name in your repo
+          clone-on-start: true
+          username: akashp9604
+          password: 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
