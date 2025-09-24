@@ -1,0 +1,11 @@
+server:
+  port: 9300
+
+spring:
+  application:
+    name: issue-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/issuedb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
