@@ -1,11 +1,18 @@
-server:
-  port: 9300
-
 spring:
-  application:
-    name: issue-service
   datasource:
     url: jdbc:mysql://localhost:3306/issuedb
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9091/realms/Config_Board/protocol/openid-connect/certs
