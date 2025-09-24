@@ -1,34 +1,36 @@
-server:
-  port: 8080
-
 spring:
-  application:
-    name: api-gateway
-
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
       routes:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/api/users/**
-
+            - Path=/user/**
         - id: project-service
           uri: lb://project-service
           predicates:
-            - Path=/api/projects/**
-
+            - Path=/project/**
         - id: issue-service
           uri: lb://issue-service
           predicates:
-            - Path=/api/issues/**
-
+            - Path=/issue/**
         - id: comment-service
           uri: lb://comment-service
           predicates:
-            - Path=/api/comments/**
+            - Path=/comment/**
+        - id: attachment-service
+          uri: lb://attachment-service
+          predicates:
+            - Path=/attachment/**
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
+        - id: audit-service
+          uri: lb://audit-service
+          predicates:
+            - Path=/audit/**
+        - id: reporting-service
+          uri: lb://reporting-service
+          predicates:
+            - Path=/report/**
