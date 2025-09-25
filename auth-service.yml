@@ -1,3 +1,30 @@
+server:
+  port: 9091   # auth-service will run here
+
 spring:
   application:
     name: auth-service
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9091/realms/Config_Board
+
+  cloud:
+    config:
+      uri: http://localhost:8888   # config-server (if you’re using centralized config)
+      fail-fast: true
+      override-system-properties: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
