@@ -1,4 +1,16 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: api-gateway
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9091/realms/Config_Board
+
   cloud:
     gateway:
       discovery:
@@ -46,3 +58,30 @@ spring:
           uri: lb://attachment-service
           predicates:
             - Path=/attachments/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+cloud:
+  config:
+    override-system-properties: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    root: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    root: INFO
