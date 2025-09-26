@@ -11,3 +11,23 @@
 #     show-sql: true
 #     database-platform: org.hibernate.dialect.MySQL8Dialect
 
+spring:
+  application:
+    name: audit-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/auditdb
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
